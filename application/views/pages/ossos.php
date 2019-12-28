@@ -115,7 +115,7 @@ teste();
 			<div class="col-md-12s" >
 
 				<p class="Conteudo2">Preencha os campos abaixo adequadamente para encontrar o que deseja:</p>
-				<form method="post" action="<?=base_url()?>padrao/ossos" class="form_espaco_cima">
+				<form method="post" action="<?=base_url()?>ossos" class="form_espaco_cima">
 					<div class="row content">
 						<div class="col-md-3">              
 							<p>Esqueleto:</p>
@@ -151,7 +151,7 @@ teste();
 						</form>
 						<br>
 						<br>
-						<a href="<?=base_url()?>padrao/sair">Voltar</a> | <a href="<?=base_url()?>padrao/cadastrar_osso">Cadastrar</a>
+						<a href="<?=base_url()?>home">Voltar</a> | <a href="<?=base_url()?>padrao/cadastrar_osso">Cadastrar</a>
 					</div>
 				</div>
 
@@ -212,10 +212,6 @@ teste();
 </div>
 </div>
 <div style="background-color: #555;height: 10px;margin-bottom: 150px;"></div>
-<footer class="container-fluid text-center">
-	<p>Laboratório de Anatomia Virtual &#169; 2018 - Todos os direitos reservados ao IFSuldeMinas - Campus Muzambinho</p>
-</footer>
-</body>
 <script type="text/javascript">
 	$(".botao").click(function(){
 		var img = $( this ).attr( "imagem" );
@@ -228,6 +224,3 @@ teste();
 	});
 
 </script>
-
-
-</html>
