@@ -1,0 +1,609 @@
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: black; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #696969; 
+    border-radius:40px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+.txtInfo{
+  background-color: lightgray;
+}
+.topnav {
+  overflow: hidden;
+  height: 70px;
+  background-color: #1C1C1C;
+  vertical-align: middle;
+}
+.img_men{
+  width:40px;
+}
+.topnav li {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  margin-left: 2%;
+  vertical-align: middle;
+}
+.topnav a {
+  
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  vertical-align: middle;
+
+}
+.topnav-right a {
+  
+  float: left;
+  font-size: 17px;
+  display: block;
+  color: white;
+  text-align: center;
+  height: 70px;
+  text-decoration: none;
+  padding: 20px 16px;
+  vertical-align: middle;
+
+}
+.topnav a:hover {
+  background-color: white;
+  color: black;
+  -moz-transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+
+}
+
+.cont{
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.topnav-right {
+  float: right;
+  
+  
+  margin-right: 10px;
+  vertical-align: middle;
+
+  
+}
+.topnav a:hover {
+  background-color: white;
+  color: black;
+}
+
+.active {
+  background-color: white;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+
+.titulo2{
+  color: white; 
+  background-color: #27c5e7;
+  padding: 1.5%; 
+  font-size: 30px;
+  margin-top: 0;
+}
+.titulo{
+  color: white; 
+  background-color: #32CD32;
+  padding: 1.5%; 
+  font-size: 30px;
+  margin-top: 0;
+}
+
+.titulo_ossos{
+  color: white; 
+  background-color: #32CD32;
+  font-size: 25px;
+  margin-bottom: 0;
+
+}
+
+.botao_conf_ossos{
+	border-radius:20px;
+}
+
+.info_ossos{
+  width:1%; 
+  position: relative;
+  -webkit-animation-name: example;
+  -webkit-animation-duration: 1s;
+  animation-name: example;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+
+.opcoes{
+  background-color: lightgray;
+}
+.opcoes:hover{
+  cursor: pointer;
+}
+
+
+.img_ossos{
+  
+  width:1%; 
+  position: relative;
+  -webkit-animation-name: img_oss;
+  -webkit-animation-duration: 1s;
+  animation-name: img_oss;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  border-radius:20px;
+  margin-bottom:5%;
+}
+
+.img_esp{
+  width:1%; 
+  position: relative;
+  -webkit-animation-name: img_esp;
+  -webkit-animation-duration: 1s;
+  animation-name: img_esp;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+  border-radius:20px;
+  margin-bottom:5%;
+
+}
+@keyframes img_esp {
+    from {margin-left: 55%; width:1%;}
+    
+    to {margin-left:0; width: 60%;}
+}
+
+.botao{
+  color: black;
+  font-weight: bold;
+}
+.botoes_animais:hover{
+         opacity: 0.2;
+         cursor: pointer;
+         transition: 0.5s;
+         }
+   .txtInfo{
+    margin-bottom: 50px;
+   }
+
+.item_tab{
+  color: black;
+  border:1px solid white;
+  background-color: gray;
+  width: 33.3%;
+  height: 65px;
+  cursor: pointer;
+}
+
+.item_tab:hover{
+  background-color:white;
+      -moz-transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+}
+
+.container_principal{
+  background-color: white;
+}
+
+@keyframes example {
+    from {margin-right: 55%;margin-bottom: 0%; width:1%;height:1px;}
+    
+    to {margin-right: 0; width:100%;margin-bottom:2%;height:100%;}
+}
+
+@keyframes img_oss {
+    from {margin-left: 55%; width:1%;}
+    
+    to {margin-left:0; width: 60%;}
+}
+
+.botao_conf_ossos:hover{
+
+      color:black;
+      border: 2px solid black;
+      background-color:white;
+      -moz-transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+      
+}
+
+.img_pain{
+  width: 100%;
+  border-radius: 20px;
+  border:1px solid gray;
+  box-shadow: 5px 5px 5px #959595;
+}
+
+.img_logo_patro{
+  text-align: center;
+}
+
+.img_patro{
+  width: 90%;
+
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  border:1px solid #959595;
+  box-shadow: 5px 5px 5px #959595;
+}
+
+.select_ossos:hover{
+
+	
+      border: 1px solid black;
+      
+      -moz-transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+}
+
+
+.painel{
+  
+  margin-left: 5%;
+  
+}
+
+.titulo_painel{
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold;
+  color: #00BFFF;
+  font-size: 30px;
+  text-shadow: 1px 0px 0px black, 
+                 -1px 0px 0px black, 
+                 0px 1px 0px black, 
+                 0px -1px 0px black;
+}
+
+
+.img_pain:hover{
+opacity: 0.25;
+border: 2px solid black;
+-moz-transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+}
+
+.navbar{
+  margin-bottom: 0;
+  border-radius: 0;
+ 
+}
+.navbar-inverse{
+  background-color: black;
+  margin-bottom: 0;
+}
+
+    
+/* Set gray background color and 100% height */
+.sidenav {
+  padding-top: 20px;
+  background-color: #f1f1f1;
+  height: 100%;
+  height: auto;
+  padding: 15px;
+}
+    
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 5px;
+  
+  margin-top: 60px;
+  bottom: 0;
+  width: 100%;
+  z-index: 50;
+}
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+.desc_patro{
+  font-size: 18px;
+}
+
+.row.content {
+	height:auto;
+	
+} 
+
+.caixaPro{
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #FBFBFB;
+  width: 335px;
+  height: 137px;
+  
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+.caixaPro:hover{
+  border-bottom: 3px solid #2E720D;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+  -moz-transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+}
+.barrinha{
+    border-left: 1px solid #666666;
+    height: 100px;
+  }
+
+.centernavMinha{
+  background-color: #f1f1f1;
+}
+
+.Conteudo2{
+	font-size: 18px;padding: 15px;
+}
+.Conteudo{
+  font-size: 18px;padding: 15px;
+  color:black;
+}
+.aba_info_ossos{
+  background-color: lightgray;
+}
+.barra_usuario{
+	padding: 10px;
+	border: 1px solid black;
+	height: 100%;
+	background-color: #4F4F4F;
+	
+}
+
+.col-md-3{
+  padding-left: 0;
+}
+
+.container_conteudo{
+	border: 1px solid #828282;
+	height: 100%;
+	margin-right: 2.5%;
+	margin-left: 2.5%;
+  margin-bottom: 50px;
+	margin-top: 1%;
+	background-color: #f1f1f1;
+	margin-bottom: 1%;
+}
+.patro{
+  
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  
+}
+
+.container_conteudo2{
+  border: 1px solid #828282;
+  height: 100%;
+
+  background-color: black;
+  
+}
+
+.container_conteudo3{
+  border: 1px solid #828282;
+  height: 100%;
+  margin-top: 3%;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+
+.botao_barra_usuario23{
+  background-color: #108D22;
+  color: white;
+  width: 74%;
+  padding: 3%;
+  border: 2px #108D22;
+  border-radius: 2%;
+  font-family: Segoe UI;
+  margin-left: 13%;
+  font-size: 18pt;
+}
+.botao_barra_usuario23:hover{
+background-color: #17C430;
+-moz-transition: all 0.2s ease;
+      -webkit-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+}
+
+.botao_barra_usuario1{
+	background-color: #2E720D;
+	color: white;
+	width: 74%;
+	padding: 3%;
+	border: 2px #2E720D;
+	border-radius: 2%;
+	font-family: Segoe UI;
+  margin-left: 13%;
+  font-size: 18pt;
+  margin-bottom: 5%;
+}
+.botao_barra_usuario2{
+  background-color: #108D22;
+  color: white;
+  width: 74%;
+  padding: 3%;
+  border: 2px #108D22;
+  border-radius: 2%;
+  font-family: Segoe UI;
+  margin-left: 13%;
+  font-size: 18pt;
+}
+
+.botao_barra_usuario1:hover{
+background-color: #4FB81C;
+-moz-transition: all 0.2s ease;
+      -webkit-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+}
+
+.botao_barra_usuario2:hover{
+background-color: #17C430;
+-moz-transition: all 0.2s ease;
+      -webkit-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+}
+.label_foto_usu{
+	margin-top:10%;
+
+	cursor: pointer;
+	width: 100%;
+}
+
+.formulario_foto_usu{
+	text-align: center;
+}
+
+.img_logo{
+	height: 150%;
+}
+
+*{
+   font-family: 'Crete Round', serif;
+
+}
+
+.select_ossos{
+	width: 15%;
+	height: 30px;
+	border-radius: 5px;
+}
+.form_espaco_cima{
+padding: 2%;
+}
+
+.botao_conf_ossos{
+	background-color: black;
+	color: white;
+	border: 1px solid white;
+	font-weight: bold;
+	height: 30px;
+	width: 10%;
+
+}
+
+.centralizar{
+	text-align: justify;
+	width: 100%;
+}
+
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.lateral{
+	z-index: 500;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
