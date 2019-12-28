@@ -1,2 +1,2 @@
-# laboratorio-virtual
+# laboratorio_virtual
 College Project
