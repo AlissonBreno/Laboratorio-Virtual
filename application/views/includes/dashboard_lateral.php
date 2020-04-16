@@ -1,23 +1,30 @@
 <div class="row">
 	<h3 style="text-align: center; font-family: Segoe UI; color: #707070">Painel Administrativo<h3>
 	<div class="row">
-		<a href="<?=base_url()?>painel/dashboard">
+		<a href="<?=base_url()?>dashboard">
 			<h4 style="margin-left: 13%; font-family: Segoe UI; color: #707070"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Painel</h4>
 		</a>
 		
 	</div>
 	<div class="row">
-		<a href="<?=base_url()?>painel/usuarios">
+		<a href="<?=base_url()?>usuarios">
 			<h4 style="margin-left: 13%; font-family: Segoe UI; color: #707070"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuários</h4>
 			
 		</a>
 	</div>
 	<div class="row">
-		<a href="<?=base_url()?>painel/exercicios">
+		<a href="<?=base_url()?>exercicios">
 			<h4 style="margin-left: 13%; font-family: Segoe UI; color: #707070"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Exercícios</h4>
 		</a>
-		
 	</div>
+	<?php $tipo = $this->session->userdata('tipo'); ?>
+    <?php if($tipo == 2 || $tipo == 0){ ?>
+		<div class="row">
+			<a href="<?=base_url()?>aprovacao_exercicios">
+				<h4 style="margin-left: 13%; font-family: Segoe UI; color: #707070"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Aprovar Exercício</h4>
+			</a>
+		</div>
+	<?php } ?>
 	<div class="row">
 		<a href="<?=base_url()?>painel/exercicios_corrigir">
 			<h4 style="margin-left: 13%; font-family: Segoe UI; color: #707070 "><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Correções</h4>
