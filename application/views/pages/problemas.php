@@ -1,5 +1,5 @@
 
-	<div class="container" style="box-shadow: 0px 3px 6px #C2C2C2;background-color: #FBFBFB">
+	<div class="container" style="box-shadow: 0px 3px 6px #C2C2C2;background-color: #FBFBFB; min-height: 550px">
 		<div style="margin-left: 2%">
 			<h2 style="font-family: Segoe UI; color: #2E720D">Categorias <img style="margin-top: -1.5%" src="<?=base_url()?>media/imagens/lupa_cat.png" ></h2>
 			<hr style="border: 1px solid green; margin-right: 2%; margin-top: -0.5%">

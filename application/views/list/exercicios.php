@@ -7,13 +7,13 @@
 			</div>
 		</div>
 		<div class="col-md-9">
-			<div class="well" style="background-color: #EFEFEF">
+			<div class="well" style="background-color: #EFEFEF; height: 570px">
 				<div class="row">
 					<div class="col-md-6" style="float:left;">
 						<h2 style="text-align: left; margin-left: 2%; font-size: 16pt; font-family: Segoe UI; color: #707070">Lista de Exercícios</h2>
 					</div>
 					<div class="col-md-6">
-						<a href="<?=base_url()?>Usuarios/cadastrar">
+						<a onclick="cadastrar_exercicio()">
 		                    <button type="button" class="btn btn-primary" style="float: right; margin-top: 3.5%"><span class="fa fa-plus"></span>  Novo item</button>
 		                </a>
 					</div>
@@ -40,49 +40,52 @@
                                 <th scope="col">#</th>
                                 <th scope="col" style="text-align:left;t">Nome</th>
                                 <th scope="col" style="text-align:left;t">Categorias</th>
-                                <th scope="col" style="text-align:left;t">Submetidos</th>
+                                <th scope="col" style="text-align:left;t">Tipo</th>
                                 <th scope="col" style="text-align:left;t">Status</th>
                                 <th scope="col" style="text-align:center">Ação</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            	<tr>
-                            		<td>1</td>
-                            		<td>Exercício 1</td>
-                            		<td>S.O. Bovino</td>
-                            		<td>142</td>
-                            		<td><span class="label label-success">Ativo</span></td>
-                            		<td style="text-align:center">
-                                        <a href="" title="Detalhes" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>						                		</a>
-                                        <a href="" title="Editar Cadastro" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                                        <a href="" title="Apagar Cadastro" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                                    </td>
-                            	</tr>
-                            	<tr>
-                            		<td>2</td>
-                            		<td>Exercício 2</td>
-                            		<td>S.O. Bovino</td>
-                            		<td>0</td>
-                            		<td><span class="label label-danger">Inativo</span></td>
-                            		<td style="text-align:center">
-                                        <a href="" title="Detalhes" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>						                		</a>
-                                        <a href="" title="Editar Cadastro" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                                        <a href="" title="Apagar Cadastro" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                                    </td>
-                            	</tr>
-                            	<tr>
-                            		<td>3</td>
-                            		<td>Exercício 3</td>
-                            		<td>S.O. Bovino</td>
-                            		<td>0</td>
-                            		<td><span class="label label-warning">Em Análise</span></td>
-                            		<td style="text-align:center">
-                                        <a href="" title="Detalhes" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>						                		</a>
-                                        <a href="" title="Editar Cadastro" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                                        <a href="" title="Apagar Cadastro" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-                                    </td>
-                            	</tr>
-                            	
+                                <?php foreach ($exercicios as $exercicio) { ?>
+                                	<tr>
+                                		<td><?= $exercicio->Cod_Exe ?></td>
+                                		<td id="titulo_<?php echo $exercicio->Cod_Exe; ?>"><?= $exercicio->Nom_Exe ?></td>
+                                        <?php foreach ($cat_exercicios as $cat_exercicio) { ?>
+                                		    <?php if($exercicio->Cat_Exe == $cat_exercicio->Cod_Cate){ ?>  
+                                                <td><?= $cat_exercicio->Sig_Cate ?></td>
+                                            <?php } ?>
+                                		<?php } 
+                                        if($exercicio->Dis_Exe == 1){?>
+                                            <td>Dissertativo</td>
+                                		<?php }else{ ?>
+                                            <td>Múltipla Escolha</td>
+                                        <?php } ?>
+                                        <td>
+                                            <?php if($exercicio->Status_Exe == 0){ ?>
+                                                <span class="label label-warning">Em Análise</span>
+                                            <?php } 
+                                            else if($exercicio->Status_Exe == 1){?>
+                                                <span class="label label-success">Ativo</span>
+                                            <?php } 
+                                            else if($exercicio->Status_Exe == 2){ ?>
+                                                <span class="label label-danger">Inativo</span>
+                                            <?php } ?>    
+                                        </td>
+                                		<td style="text-align:center">
+                                            <a  onclick="analise('<?php echo $exercicio->Cod_Exe; ?>')" title="Analisar Cadastro" class="btn btn-info"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+                                            <a href="<?=base_url()?>Exercicios/atualizar/<?= $exercicio->Cod_Exe ?>" title="Editar Cadastro" class="btn btn-success"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                        </td>
+                                        <input type="hidden" id="descricao_<?php echo $exercicio->Cod_Exe; ?>" value="<?php echo $exercicio->Desc_Exe ?>"/>
+                                        <input type="hidden" id="RespC_<?php echo $exercicio->Cod_Exe; ?>" value="<?php echo $exercicio->RespC_Exe ?>">
+                                        <input type="hidden" id="Op1_<?php echo $exercicio->Cod_Exe; ?>" value="<?php echo $exercicio->Op1_Exe ?>">
+                                        <input type="hidden" id="Op2_<?php echo $exercicio->Cod_Exe; ?>" value="<?php echo $exercicio->Op2_Exe ?>">
+                                        <input type="hidden" id="Op3_<?php echo $exercicio->Cod_Exe; ?>" value="<?php echo $exercicio->Op3_Exe ?>">
+                                        <input type="hidden" id="Op4_<?php echo $exercicio->Cod_Exe; ?>" value="<?php echo $exercicio->Op4_Exe ?>">
+                                        <input type="hidden" id="Op5_<?php echo $exercicio->Cod_Exe; ?>" value="<?php echo $exercicio->Op5_Exe ?>">
+                                        <input type="hidden" id="Op6_<?php echo $exercicio->Cod_Exe; ?>" value="<?php echo $exercicio->Op6_Exe ?>">
+                                        <input type="hidden" id="Dis_<?php echo $exercicio->Cod_Exe; ?>" value="<?php echo $exercicio->Dis_Exe ?>">
+                                	</tr>
+                                <?php }  ?>                            	
                             </tbody>
                         </table>
                     </div>
@@ -91,4 +94,4 @@
 			</div>
 		</div>
 	</div>
-</body>
+<script src="<?=base_url()?>assets/js/exercicio.js"></script>

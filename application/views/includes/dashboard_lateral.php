@@ -17,14 +17,6 @@
 			<h4 style="margin-left: 13%; font-family: Segoe UI; color: #707070"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Exercícios</h4>
 		</a>
 	</div>
-	<?php $tipo = $this->session->userdata('tipo'); ?>
-    <?php if($tipo == 2 || $tipo == 0){ ?>
-		<div class="row">
-			<a href="<?=base_url()?>aprovacao_exercicios">
-				<h4 style="margin-left: 13%; font-family: Segoe UI; color: #707070"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Aprovar Exercício</h4>
-			</a>
-		</div>
-	<?php } ?>
 	<div class="row">
 		<a href="<?=base_url()?>painel/exercicios_corrigir">
 			<h4 style="margin-left: 13%; font-family: Segoe UI; color: #707070 "><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Correções</h4>
