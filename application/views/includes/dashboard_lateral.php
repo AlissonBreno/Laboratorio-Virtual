@@ -18,7 +18,7 @@
 		</a>
 	</div>
 	<div class="row">
-		<a href="<?=base_url()?>painel/exercicios_corrigir">
+		<a href="<?=base_url()?>correcoes">
 			<h4 style="margin-left: 13%; font-family: Segoe UI; color: #707070 "><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Correções</h4>
 		</a>
 	</div>

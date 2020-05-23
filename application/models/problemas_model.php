@@ -3,25 +3,13 @@
 class Problemas_model extends CI_Model{
 
 	public function getProblemas(){
-		$query = $this->db->get('tbl_exer');
+		$query = $this->db->get('tbl_exe');
 		return $query->result();	
 	}
 
 	public function getProblemas_Res(){
 		$query = $this->db->get('tbl_exer_res');
 		return $query->result();	
-	}
-
-	public function getProblemas_Pen($id = NULL){
-		if($id != NULL){
-			// Verific se o Id está no Banco de Dados
-			$this->db->where('Cod_Exe', $id);
-			// Limita apenas a um registro.
-			$this->db->limit(1); 
-			//pega o usuário referente a $id
-			$query = $this->db->get("tbl_exer_pen");
-			return $query->row();
-		}	
 	}
 
 	public function getExercicioById($id = NULL){
@@ -31,15 +19,15 @@ class Problemas_model extends CI_Model{
 			// Limita apenas a um registro.
 			$this->db->limit(1); 
 			//pega o usuário referente a $id
-			$query = $this->db->get("tbl_exer");
+			$query = $this->db->get("tbl_exe");
 			return $query->row();
 		}
 	}
 
 	public function getExercicioByTipo($id = NULL){
-		$query = $this->db->query('SELECT Tip_Exe FROM tbl_exer WHERE Cod_Exe ='.$id.'');
+		$query = $this->db->query('SELECT Dis_Exe FROM tbl_exe WHERE Cod_Exe ='.$id.'');
 		$row = $query->row();
-		return $row->Tip_Exe;
+		return $row->Dis_Exe;
 
 		if($id != NULL){
 			// Verific se o Id está no Banco de Dados
@@ -47,7 +35,7 @@ class Problemas_model extends CI_Model{
 			// Limita apenas a um registro.
 			$this->db->limit(1); 
 			//pega o usuário referente a $id
-			$query = $this->db->get("tbl_exer");
+			$query = $this->db->get("tbl_exe");
 			return $query->row();
 		}
 	}
@@ -94,30 +82,23 @@ class Problemas_model extends CI_Model{
 		}
 	}
 
-	public function get_EnviaExercicioByIdPendente($id = NULL, $idu = NULL){
+	public function verificaPendencia($id = NULL, $idu = NULL){
 		if($id != NULL){
 			// Verific se o Id está no Banco de Dados
 			$this->db->where('Cod_Exe', $id);
-			$this->db->where('Alu_EP', $idu);
+			$this->db->where('Alu_ER', $idu);
+			$this->db->where('Sta_ER', 2);
 			// Limita apenas a um registro.
 			$this->db->limit(1); 
 			//pega o usuário referente a $id
-			$query = $this->db->get("tbl_exer_pen");
+			$query = $this->db->get("tbl_exer_res");
 			return $query->row();
-		}
-	}
-	
-	public function addExePendente($dados = NULL, $id = NULL){
-		$opa = $this->problemas_model->get_EnviaExercicioByIdPendente($id);
-		
-		if ($dados != NULL){
-			$this->db->insert('tbl_exer_pen', $dados);
 		}
 	}
 
 	public function editExercicio($todos = NULL, $id = NULL){
 		if($todos != NULL && $id != NULL){
-			$this->db->update('tbl_exer', $todos, array('Cod_Exe'=>$id)); 
+			$this->db->update('tbl_exe', $todos, array('Cod_Exe'=>$id)); 
 		}
 	}
 

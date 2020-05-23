@@ -71,11 +71,11 @@ class Problemas extends CI_Controller{
 		if($id==NULL){
 			redirect('home');	
 		}
+		
 		// Seleciona Problema por Id
 		$this->load->model('problemas_model');
 
 		$query = $this->problemas_model->getExercicioById($id);
-		$tipoEx = $this->problemas_model->getExercicioByTipo($id);
 
 		if($query==NULL){
 			redirect('problemas');	
@@ -86,15 +86,10 @@ class Problemas extends CI_Controller{
 
 		$dadoss['usuarios'] = $this->usuarios_model->getUsuarios();
 
-		if($tipoEx == 1){
-			$this->load->view('includes/header', $info);
-			$this->load->view('problemas/post_exercicio', $dados + $dadoss);
-			$this->load->view('includes/footer');
-		} else{
-			$this->load->view('includes/header', $info);
-			$this->load->view('problemas/post_exercicioDiss', $dados + $dadoss);
-			$this->load->view('includes/footer');
-		}	
+		$this->load->view('includes/header', $info);
+		$this->load->view('problemas/post_exercicio', $dados + $dadoss);
+		$this->load->view('includes/footer');
+	
 	}
 
 	public function enviar_resposta(){
@@ -103,35 +98,54 @@ class Problemas extends CI_Controller{
 		$dados['Cat_ER'] = $this->input->post('assunto');
 		$dados['Dat_ER'] = date("Y-m-d");
 		$dados['Alu_ER'] = $this->session->userdata('codigo');
-		$dados['Sta_ER'] = $this->input->post('status');
 		$dados['Cod_Exe'] = $this->input->post('id');
-		$dados['Tip_ER'] = 1;
+		$dados['Cat_ER'] = 1;
+
+		
 
 		$cor = $this->input->post('correta');
 		$op = $this->input->post('opcao');
 
 		$env = $this->input->post('env') + 1;
-		$todos['Env_Exe'] = $env;
+		$todos['Ten_Exe'] = $env;
 		$t = $this->input->post('tentativas') + 1;
 		$a = $this->input->post('acertos') + 1;
 		$tent['Tent_Usu'] = $t;
 		$acert['Acer_Usu'] = $a;
 		$status['Sta_ER'] = 1;
 
-		if($cor == $op){
+		if($this->input->post('dissertativo') == 1){
+			$dados['Sta_ER'] = 2;
+
+			//Enviar para tabela de avaliação
+			$opa = $this->problemas_model->verificaPendencia($this->input->post('id'), $this->session->userdata('codigo'));
+			if($opa != NULL){
+				if($opa->Cod_Exe == $this->input->post('id')){
+					$this->session->set_flashdata('mensagem', 'Você já respondeu essa questão. Por favor, aguarde até que sua resposta seja avaliada para tentar novamente.');
+					redirect('problemas');
+				}
+			}else{
+				$this->problemas_model->addExercicio($dados,$this->input->post('id'), $status, $acert, $this->session->userdata('codigo'));
+				$this->problemas_model->editExercicio($todos,$this->input->post('id'));
+				$this->problemas_model->addTent($tent,$this->session->userdata('codigo'));
+				$this->session->set_flashdata('mensagem', 'Sua resposta foi enviada aos avaliadores. Aguarde o resultado!');
+				redirect('problemas');
+			}
+
+		}else if($cor == $op){
 			$dados['Sta_ER'] = 1;
 			$this->problemas_model->addExercicio($dados,$this->input->post('id'), $status, $acert, $this->session->userdata('codigo'));
 			$this->problemas_model->editExercicio($todos,$this->input->post('id'));
 			$this->problemas_model->addTent($tent,$this->session->userdata('codigo'));
 			$this->session->set_flashdata('mensagem', 'Muito bem! Sua resposta para o problema está correta!');
-			redirect('padrao/problemas');
+			redirect('problemas');
 		}else{
 			$status['Sta_ER'] = 0;
 			$this->problemas_model->addExercicio($dados,$this->input->post('id'),$status, $acert, $this->session->userdata('codigo'));
 			$this->problemas_model->editExercicio($todos,$this->input->post('id'));
 			$this->problemas_model->addTent($tent,$this->session->userdata('codigo'));
 			$this->session->set_flashdata('mensagem', 'Infelizmente, a resposta não é esta. Tente novamente');
-			redirect('padrao/problemas');
+			redirect('problemas');
 		}
 	}
 	public function enviar_resposta_Diss(){
